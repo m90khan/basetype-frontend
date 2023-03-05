@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, theme } from '@chakra-ui/react';
 const breakpoints = {
   sm: '320px',
   md: '768px',
@@ -8,21 +8,31 @@ const breakpoints = {
   '3xl': '1920px',
   '4xl': '2160px',
 };
-
+const config = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+};
 const customTheme = extendTheme({
+  ...theme,
+  config,
   colors: {
+    pink: {
+      900: '#F1AAAC',
+      100: '#F4EDED',
+    },
     primary: {
-      white: '#FFFFFF',
-      black: '#000000',
-      orange: '#F07D00',
-      orange500: '#CA6316',
-      grey: '#363636',
+      900: '#2B4248',
+      800: '#274C5B',
+      100: '#E4EBEB',
+    },
+    white: {
+      900: '#ffffff',
     },
     gray: {
-      50: '#F2F2F2',
-      75: '#ECECEC',
-      100: '#D8D8D8',
-      200: '#575757',
+      900: '#000',
+      800: '#101010',
+      700: '#767676',
+      100: '#F5F5F5',
     },
     system: {
       error: '#FD1314',
@@ -32,64 +42,90 @@ const customTheme = extendTheme({
     },
     gradient: {
       orange: 'linear-gradient(96.8deg, #F07D00 2.51%, #CA6316 78.96%)',
-      orangeHover: 'linear-gradient(96.8deg, #FFA442 2.51%, #F07D00 78.96%)',
-      lightGrey: 'linear-gradient(90deg, #D7D7D7 0%, #CACACA 108.29%)',
-      darkGrey: 'linear-gradient(90deg, #363636 0%, #2F2F2F 112.9%)',
-      whiteHover: 'linear-gradient(284.41deg, #E7E7E7 3.86%, #F2F2F2 89.28%)',
-      gray: 'linear-gradient(177.67deg, rgba(54, 54, 54, 0.9) 0.22%, rgba(0, 0, 0, 0.9) 100.67%);',
-      greyHover:
-        'linear-gradient(177.67deg, rgba(87, 87, 87, 0.8) 0.22%, #575757 100.19%)',
-      secondaryButtonHover:
-        'linear-gradient(96.8deg, #575757 2.51%, #363636 78.96%)',
     },
   },
 
   fonts: {
-    black: 'Roboto-Black',
-    bold: 'Roboto-Bold',
-    medium: 'Roboto-Medium',
+    body: `'Josefin Sans', sans-serif`,
+    heading: `'Junge', serif`,
   },
 
   breakpoints: breakpoints,
+  defaultProps: {
+    variant: 'sm', // default is solid
+    colorScheme: 'white', // default is gray
+  },
+  fontSizes: {
+    xs: '12px',
+    sm: '14px',
+    md: '16px',
+    lg: '18px',
+    xl: '20px',
+    22: '22px',
+    30: '30px',
+    35: '35px',
+    40: '40px',
+    50: '50px',
+    60: '60px',
+    80: '8rem',
+  },
   components: {
     Heading: {
-      variants: {
+      sizes: {
         h1: {
-          fontSize: '60px',
-          fontWeight: 900,
+          fontSize: '8rem',
+          fontWeight: 400,
+          color: 'primary.800',
         },
-        h2: { fontSize: '40px', fontWeight: 900 },
-        h3: { fontSize: '28px', fontWeight: 900 },
-        h4: {
-          fontsize: '18px',
-          fontWeight: 900,
-          _hover: { color: 'primary.orange' },
-        },
+        h2: { fontSize: '6rem', fontWeight: 400, color: 'primary.800' },
+        h3: { fontSize: '5rem', fontWeight: 400, color: 'primary.800' },
+        h4: { fontSize: '4rem', fontWeight: 400, color: 'primary.800' },
+        h5: { fontSize: '3.5rem', fontWeight: 400, color: 'primary.800' },
+        h6: { fontSize: '3rem', fontWeight: 400, color: 'primary.800' },
+
+        // h4: {
+        //   fontsize: '18px',
+        //   fontWeight: 900,
+        //   _hover: { color: 'primary.orange' },
+        // },
       },
     },
     Text: {
       sizes: {
         xl: {
-          fontSize: '20px',
+          fontSize: '2.2rem',
         },
-        lg: { fontSize: '18px' },
-        md: { fontSize: '16px' },
-        sm: { fontSize: '14px' },
+        lg: {
+          fontSize: '2rem',
+        },
+        md: { fontSize: '18px' },
+        sm: { fontSize: '16px' },
+        xs: { fontSize: '14px' },
       },
     },
+
     Button: {
       variants: {
         primary: {
-          background: 'gradient.orange',
+          background: 'green.900',
+          color: 'gray.100',
+          padding: '25px 30px 25px',
           _hover: {
-            background: 'gradient.orangeHover',
+            background: 'green.800',
+            color: 'gray.100',
+            padding: '25px 30px 25px',
           },
         },
         secondary: {
-          background: 'gradient.darkGrey',
-          color: 'primary.white',
+          background: 'transparent',
+          color: 'green.900',
+          border: '2px solid #2B4248',
+          padding: '23px 28px 24px',
           _hover: {
-            background: 'gradient.secondaryButtonHover',
+            background: 'green.900',
+            color: 'gray.100',
+            border: 'none',
+            padding: '25px 30px 25px',
           },
         },
         disabled: {
