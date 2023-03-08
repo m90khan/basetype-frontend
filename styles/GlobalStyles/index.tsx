@@ -39,9 +39,6 @@ export default function GlobalStyles({ children }: any) {
             height: 100%;
             width: 100%;
           }
-          .chakra-button__icon {
-            margin-bottom: 5px;
-          }
         `}
       />
       {children}

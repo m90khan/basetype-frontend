@@ -20,7 +20,7 @@ const customTheme = extendTheme({
       900: '#F1AAAC',
       100: '#F4EDED',
     },
-    primary: {
+    green: {
       900: '#2B4248',
       800: '#274C5B',
       100: '#E4EBEB',
@@ -116,7 +116,7 @@ const customTheme = extendTheme({
             padding: '25px 30px 25px',
           },
         },
-        secondary: {
+        primaryOutline: {
           background: 'transparent',
           color: 'green.900',
           border: '2px solid #2B4248',
@@ -124,6 +124,28 @@ const customTheme = extendTheme({
           _hover: {
             background: 'green.900',
             color: 'gray.100',
+            border: 'none',
+            padding: '25px 30px 25px',
+          },
+        },
+        secondary: {
+          background: 'white.900',
+          color: 'green.900',
+          padding: '25px 30px 25px',
+          _hover: {
+            background: 'green.100',
+            color: 'green.900',
+            padding: '25px 30px 25px',
+          },
+        },
+        secondaryOutline: {
+          background: 'transparent',
+          color: 'white.900',
+          border: '2px solid #fff',
+          padding: '23px 28px 24px',
+          _hover: {
+            background: 'green.100',
+            color: 'green.900',
             border: 'none',
             padding: '25px 30px 25px',
           },

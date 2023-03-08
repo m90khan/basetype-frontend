@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
 interface Props {
-  icon: string;
+  icon?: string;
+  text: string;
+  variant: string;
 }
-const ButtonBox = ({ icon }: Props) => {
+const ButtonBox = ({ icon, text, variant = 'primary' }: Props) => {
   const icons: any = {
     white: (
       <svg
@@ -40,8 +42,8 @@ const ButtonBox = ({ icon }: Props) => {
   };
 
   return (
-    <Button variant={'primary'} rightIcon={icons[icon]}>
-      Hello
+    <Button variant={variant} rightIcon={icon && icons[icon]}>
+      {text}
     </Button>
   );
 };
