@@ -12,7 +12,8 @@ const components = {
   'media-below-content': MediaBelowContent,
 };
 
-export const Hero = ({ variant, content }: any) => {
+export const Hero: React.FC<any> = ({ variant, content }: any) => {
+  // @ts-ignore
   const Block: React.FC<any> = components[variant];
   return <Block {...content} />;
 };
