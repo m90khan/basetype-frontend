@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 import { Josefin_Sans, Junge } from '@next/font/google';
 import { Header } from '@components/UI/common/Header';
 import 'public/css/menu/index.css';
+import { Footer } from '@components/UI/common/Footer';
 const josefinFonts = Josefin_Sans({
   weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
@@ -34,6 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ColorModeScript initialColorMode={customTheme.config.initialColorMode} />
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   );
 }
