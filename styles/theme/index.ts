@@ -59,15 +59,20 @@ const customTheme = extendTheme({
     xs: '12px',
     sm: '14px',
     md: '16px',
-    lg: '18px',
-    xl: '20px',
+    18: '18px',
+    20: '20px',
     22: '22px',
     30: '30px',
     35: '35px',
     40: '40px',
     50: '50px',
     60: '60px',
+    70: '70px',
     80: '8rem',
+    90: '9rem',
+    100: '10rem',
+    110: '11rem',
+    120: '12rem',
   },
   components: {
     Heading: {
@@ -109,45 +114,37 @@ const customTheme = extendTheme({
         primary: {
           background: 'green.900',
           color: 'gray.100',
-          padding: '25px 30px 25px',
           _hover: {
             background: 'green.800',
             color: 'gray.100',
-            padding: '25px 30px 25px',
           },
         },
         primaryOutline: {
           background: 'transparent',
           color: 'green.900',
           border: '2px solid #2B4248',
-          padding: '23px 28px 24px',
           _hover: {
             background: 'green.900',
             color: 'gray.100',
             border: 'none',
-            padding: '25px 30px 25px',
           },
         },
         secondary: {
           background: 'white.900',
           color: 'green.900',
-          padding: '25px 30px 25px',
           _hover: {
             background: 'green.100',
             color: 'green.900',
-            padding: '25px 30px 25px',
           },
         },
         secondaryOutline: {
           background: 'transparent',
           color: 'white.900',
           border: '2px solid #fff',
-          padding: '23px 28px 24px',
           _hover: {
             background: 'green.100',
             color: 'green.900',
             border: 'none',
-            padding: '25px 30px 25px',
           },
         },
         disabled: {

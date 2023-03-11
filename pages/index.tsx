@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <Box w={'95%'} m={'0 auto'} overflow={'hidden'}>
-      <Hero />
+      <Hero variant={'minimal'} />
     </Box>
   );
 }
