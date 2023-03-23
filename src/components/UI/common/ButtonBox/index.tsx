@@ -17,8 +17,8 @@ const ButtonBox = ({ icon, text, variant = 'primary', ...props }: Props) => {
         xmlns='http://www.w3.org/2000/svg'
       >
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M15.2433 0.165527L21.2454 6.83449H0V4.83449H16.7546L12.5 0.165527H15.2433Z'
           fill='white'
         />
@@ -33,8 +33,8 @@ const ButtonBox = ({ icon, text, variant = 'primary', ...props }: Props) => {
         xmlns='http://www.w3.org/2000/svg'
       >
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M15.2433 0.165039L21.2454 6.834H0V4.834H16.7546L12.5 0.165039H15.2433Z'
           fill='#2B4248'
         />
