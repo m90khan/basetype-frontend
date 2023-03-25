@@ -6,6 +6,8 @@ import { useGlobalState } from 'globalState';
 import ButtonBox from '@components/UI/common/ButtonBox';
 import ProgressBar from '@components/UI/common/ProgressBar';
 import { useMediaQuery } from '@chakra-ui/react';
+import RichText from '@components/Features/RichText';
+import Link from 'next/link';
 
 interface IconProps {
   type: 'light' | 'dark';
@@ -106,35 +108,39 @@ const OnboardingSlider = (props: any): JSX.Element => {
                   alignItems={{ base: 'center', md: 'flex-start' }}
                   textAlign={{ base: 'center', md: 'left' }}
                 >
-                  <Text
-                    fontFamily='Junge'
-                    lineHeight='1.14'
-                    fontWeight='regular'
-                    maxW={{ base: '60%', xl: '100%' }}
-                    fontSize={{
-                      base: '30',
-                      md: '50',
-                      xl: '60',
-                      '2xl': '90px',
-                      '4xl': 'clamp(9rem, 6rem + 1.7857vw, 16rem)',
-                    }}
-                    textTransform='capitalize'
-                    color='#2B4248'
-                  >
-                    We are here to build your dreams.
-                  </Text>
-                  <Box>
-                    <ButtonBox icon={'green'} text={'View More'} variant={'secondary'} />
-                  </Box>
+                  <RichText
+                    styles={
+                      isSmallerThan600 && { display: 'flex', justifyContent: 'center' }
+                    }
+                    content={content.heroContent}
+                  />
+                  <Link href={content.link.url}>
+                    <ButtonBox
+                      icon={'green'}
+                      text={content.link.label}
+                      variant={'secondary'}
+                    />
+                  </Link>
                 </Stack>
                 <Flex
                   background={'linear-gradient(180deg, #F5D4D6 0%, #D5F5F2 100%)'}
-                  clipPath={'circle(50% at 50% 50%)      '}
-                  bottom={{ base: '4rem', md: 0 }}
+                  clipPath={'circle(40% at 50% 50%)'}
+                  // bg={'red'}
+                  // bottom={{ base: '4rem', md: 0 }}
                   pos={'relative'}
-                  h={{ base: '25rem', md: '55rem', xl: '50rem' }}
+                  w={{ base: '60%', md: '75%', xl: '45%' }}
+                  h={{ base: '60%', md: '70%', xl: '80%' }}
+                  overflow={'hidden'}
+                  justifyContent={'center'}
                 >
-                  <Image src={'/images/home/hero/hero.png'} />
+                  <Image
+                    src={content.heroMedia.url}
+                    w={{ base: '60%', md: '80%' }}
+                    h={'80%'}
+                    pos={'absolute'}
+                    bottom={'-5rem'}
+                    objectFit={'scale-down'}
+                  />
                 </Flex>
               </Flex>
             ))}

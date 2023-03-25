@@ -1,7 +1,9 @@
 import { Box, Circle, Image, Text, Button, Stack, Flex } from '@chakra-ui/react';
-import { useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import ButtonBox from '../../ButtonBox';
 import OnboardingSlider from './OnboardingSlider';
+import { parallaxItem } from './utils';
 
 const dslide = {
   title: "We're Modern & Creative Experts.",
@@ -13,6 +15,12 @@ const dslide = {
 export const MediaSlider = (props: any) => {
   const [slides, setSlides] = useState(props.mediaSlider);
   const OPTIONS = { align: 'start', speed: 20, slidesToScroll: 1 };
+
+  useEffect(() => {
+    document.addEventListener('mousemove', parallaxItem);
+
+    return () => document.removeEventListener('mousemove', parallaxItem);
+  }, []);
 
   return (
     <Flex
@@ -30,6 +38,8 @@ export const MediaSlider = (props: any) => {
         top={{ base: '-18%', xl: '-20%' }}
         left={{ base: '-10%', md: '-5%', xl: '10%' }}
         filter={'blur(2px)'}
+        data-value={10}
+        className={'parallax-item'}
       >
         <Circle size={{ base: '300px', md: '400px', xl: '495px' }} background='#D4E2E2' />
       </Box>
@@ -37,10 +47,18 @@ export const MediaSlider = (props: any) => {
         pos={'absolute'}
         bottom={{ base: '5%', xl: '-45%' }}
         left={{ base: '5%', xl: '-15%' }}
+        data-value={-10}
+        className={'parallax-item'}
       >
         <Circle size={{ base: '75px', xl: '827px' }} background='#E2D6D6' />
       </Box>
-      <Box pos={'absolute'} bottom={'5%'} right={'5%'}>
+      <Box
+        pos={'absolute'}
+        bottom={'5%'}
+        right={'5%'}
+        className={'parallax-item'}
+        data-value={6}
+      >
         <Circle size='75px' background='rgba(255, 255, 255, 0.29)' />
       </Box>
 
@@ -56,16 +74,18 @@ export const MediaSlider = (props: any) => {
         bottom={'5%'}
         left={'5%'}
       >
-        <Text
-          fontFamily='Josefin Sans'
-          lineHeight='1.14'
-          fontWeight='regular'
-          fontSize='20px'
-          textTransform='capitalize'
-          color='#2B4248'
-        >
-          Fb
-        </Text>
+        <Link href={'/projects'}>
+          <Text
+            fontFamily='Josefin Sans'
+            lineHeight='1.14'
+            fontWeight='regular'
+            fontSize='20px'
+            textTransform='capitalize'
+            color='#2B4248'
+          >
+            Fb
+          </Text>
+        </Link>
         <Text
           fontFamily='Josefin Sans'
           lineHeight='1.14'

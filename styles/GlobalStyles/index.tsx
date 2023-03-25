@@ -39,6 +39,33 @@ export default function GlobalStyles({ children }: any) {
             height: 100%;
             width: 100%;
           }
+          @keyframes fade-in-up {
+            from {
+              opacity: 0;
+              transform: 'translate3d(0, 80px, 0)';
+            }
+            to {
+              opacity: 1;
+              transform: 'none';
+            }
+          }
+          .richText {
+            & > *: {
+              animation-name: fade-in-up;
+              animation-duration: '800ms';
+              animation-timing-function: 'ease';
+              animation-fill-mode: 'both';
+              &:nth-child(1): {
+                animation-delay: '10ms';
+              }
+              &:nth-child(2): {
+                animation-delay: '200ms';
+              }
+            }
+          }
+          .text-center {
+            text-align: center;
+          }
         `}
       />
       {children}
